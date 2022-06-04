@@ -1,14 +1,13 @@
 FROM jekyll/builder:4.2.2 AS build
 
-ENV JEKYLL_ENV: production
+ENV JEKYLL_ENV=production
 
 WORKDIR /usr/src/app
 
-COPY . /usr/src/app
+COPY . .
 
 RUN mkdir public && \
-    bundle install && \
-    bundle exec jekyll build --disable-disk-cache -d public
+    jekyll build --disable-disk-cache -d public
 
 
 FROM nginx:1.22.0-alpine
