@@ -6,7 +6,8 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN bundle install && \
+RUN mkdir public && \
+    bundle install && \
     bundle exec jekyll build --disable-disk-cache -d public
 
 
