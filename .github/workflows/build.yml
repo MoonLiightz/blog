@@ -31,4 +31,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: moonliightz/${{ github.event.repository.name }}:${{ GITHUB_SHA::8 }}
+          tags: moonliightz/${{ github.event.repository.name }}:${GITHUB_SHA::8}
