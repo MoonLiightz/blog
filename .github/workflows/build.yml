@@ -37,3 +37,12 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.prepare.outputs.docker_tag }}
+      -
+        # https://github.com/peter-evans/repository-dispatch
+        name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ github.actor }}/${{ secrets.DISPATCH_REPO }}
+          event-type: new-image
+          client-payload: '{"image": "${{ steps.prepare.outputs.docker_tag }}", "app": "blog"}'
