@@ -8,6 +8,7 @@ on:
       - .gitignore
       - README.md
       - LICENSE
+      - .github/
 
 jobs:
   docker:
