@@ -6,9 +6,8 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN mkdir .jekyll-cache && \
-    bundle install && \
-    bundle exec jekyll build -d public
+RUN bundle install && \
+    bundle exec jekyll build --disable-disk-cache -d public
 
 
 FROM nginx:1.22.0-alpine
