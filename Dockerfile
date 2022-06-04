@@ -1,4 +1,4 @@
-FROM jekyll/jekyll:4.2.2 AS build
+FROM jekyll/builder:4.2.2 AS build
 
 ENV JEKYLL_ENV: production
 
